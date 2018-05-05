@@ -1,6 +1,5 @@
 # zipfinderapp
-
-> A simple App for finding zip codes of any city
+A simple web app for finding zip codes of any city in the US. Built with Vue.js
 
 ## Build Setup
 
