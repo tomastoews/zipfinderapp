@@ -64,7 +64,7 @@ export default {
           this.notification = null;
       },
       GetLocationInfo(e) {
-        e.preventDefault(); 
+        e.preventDefault();
 
         // Clear data and notification.
         this.results = [];
@@ -80,8 +80,14 @@ export default {
             return false;
         } 
         else {
+            const header = new Headers({'Access-Control-Allow-Origin':'*'});
+            const options = { 
+                method: 'GET',
+                headers: header
+            };
+
             // Make request
-            fetch(`http://zippopotam.us/${country}/${zip}`)
+            fetch(`http://zippopotam.us/${country}/${zip}`, options)
                 .then(response => {
                     if (response.status != 200) {
                         // Show error message
@@ -109,10 +115,6 @@ export default {
 </script>
 
 <style scoped>
-    .icon-remove, .icon-check {
-        display: none;
-    }
-    #output {
-        padding: 20px;
-    }
+    .icon-remove, .icon-check { display: none; }
+    #output { padding: 20px; }
 </style>
